@@ -5,7 +5,7 @@ header{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,7 @@ a{
 
 .header__info h1{
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 60px;
+    font-size: 3.75rem;
     height: 60px;
     letter-spacing: 5.71px;
     line-height: auto;
@@ -69,6 +69,12 @@ a{
     padding: auto;
 }
 
+@media (max-width: 600px) {
+    .header__info h1{
+        font-size: 32px;
+        letter-spacing: 4px;
+    }
+}
 
 
 /*HEAD*/
@@ -81,6 +87,13 @@ a{
     border-bottom: solid 1px #E6E6E6;
 }
 
+#menu__toggle{
+    display: none;
+}
+
+.head__links{
+    display: flex;
+}
 .head__img img{
     max-width: 100%;
     max-height: 100%;
@@ -99,11 +112,115 @@ a{
     color: #00A4E5;
 }
 
+@media (max-width: 600px){
+    .head__img{
+        display: none;
+    }
+    .head{
+        display: block;
+        padding: 0;
+        border: none;
+    }
+    #menu__toggle {
+        display: block;
+        opacity: 0;
+      }
+      #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+      }
+      #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+      }
+      #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+      #menu__toggle:checked ~ .head__links {
+        visibility: visible;
+        left: 0;
+      }
+      
+      .menu__btn {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      
+        width: 26px;
+        height: 26px;
+      
+        cursor: pointer;
+        z-index: 1;
+      }
+      
+      .menu__btn > span,
+      .menu__btn > span::before,
+      .menu__btn > span::after {
+        display: block;
+        position: absolute;
+      
+        width: 100%;
+        height: 2px;
+      
+        background-color: #616161;
+      
+        transition-duration: .25s;
+      }
+      .menu__btn > span::before {
+        content: '';
+        top: -8px;
+      }
+      .menu__btn > span::after {
+        content: '';
+        top: 8px;
+      }
+      
+      .head__links {
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+      
+        width: 300px;
+        height: 100%;
+      
+        margin: 0;
+        padding: 80px 0;
+      
+        list-style: none;
+      
+        background-color: #ECEFF1;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+      
+        transition-duration: .25s;
+      }
+      
+      .head__links__text {
+        display: block;
+        padding: 12px 24px;
+      
+        color: #333;
+      
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+      
+        text-decoration: none;
+      
+        transition-duration: .25s;
+      }
+      .head__links__text:hover {
+        background-color: #CFD8DC;
+      }
+}
 /*Story*/
 
 .story{
-    margin: 58px auto 0px auto;
-    max-width: 940px;
+    margin-top: 58px;
+    width: 100%;
 }
 
 .story__header{
@@ -123,13 +240,17 @@ a{
 }
 
 .story__container{
-    width: 100%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     margin-top: 80px;
     justify-content: center;
-    column-gap: 80px;
+    column-gap: 5rem;
     align-items: end;
 }
+
+
 
 .story__text{
     max-width: 405px;
@@ -172,6 +293,22 @@ a{
     color: #48555B;
 }
 
+@media (max-width: 768px) {
+    .story__container{
+        flex-direction: column;
+        align-items: center;
+        column-gap: 0;
+        margin-top: 32px;
+    }
+    .story__text__less{
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+    .story{
+        margin-top: 32px;
+    }
+}
+
 .plan{
     background-image: url("./img/Plan.png");
 }
@@ -188,8 +325,9 @@ a{
 
 .capabilities{
     margin: 118px auto 0px auto;
-    max-width: 940px;
+    max-width: 945px;
 }
+
 
 .capabilities__head__container{
     display: flex;
@@ -250,6 +388,7 @@ a{
     padding-right: 21px;
 }
 
+
 .capabilities__card img{
     padding-top: 38px;
 }
@@ -274,6 +413,46 @@ a{
     color: #48555B;
 }
 
+@media (max-width: 768px) {
+    .capabilities{
+        margin: 48px auto 0px auto;
+        width: 95%;
+    }
+    .capabilities__card__desc{
+        display: none;
+    }
+    .capabilities__card__header{
+        padding-bottom: 13px;
+        font-size: 14px;
+    }
+    .capabilities__card{
+        max-width: 200px;
+        border: solid 1px #E6E6E6;
+        padding-left: 13px;
+        padding-right: 11px;
+    }
+    .capabilities__cards{
+        margin-top: 32px;
+    }
+    .capabilities__head__container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 16px;
+    }
+    .capabilities__head__desc{
+        margin-left: 0px;
+    }
+    .capabilities__head__button{
+        margin-left: 0px;
+    }
+    .capabilities__head__unerline{
+        margin: 10px auto 0px auto;
+    }
+    .capabilities__head__desc{
+        display: none;
+    }
+}
 
 
 /*get in touch*/
@@ -324,6 +503,11 @@ a{
     transition: 0.3s background-color;
 }
 
+@media (max-width: 768px) {
+    .getTouch{
+        margin-top: 32px;
+    }
+}
 
 
 /*newsletter*/
@@ -331,10 +515,15 @@ a{
 
 .newsletter{
     background-color: #171819;
+    padding: 35px 0px;
+}
+
+.newsletter div{
     display: flex;
-    padding: 35px 377px;
     justify-content: center;
     align-items: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .newsletter__head{
@@ -343,6 +532,7 @@ a{
     font-size: 22px;
     letter-spacing: 0.85px;
     font-weight: bold;
+    text-align: center;
 }
 
 .newsletter__input_wrap{
@@ -379,10 +569,19 @@ a{
     background-color: #48555B;
     transition: 0.3s background-color;
 }
+@media (max-width: 768px) {
+    .newsletter__input_wrap{
+        margin-left: 32px;
+    }
+}
 
 .footer{
     background-color: #141A20;
-    padding: 42px 276px 40px 249px;
+    padding-top: 42px;
+    padding-bottom: 40px;
+    padding-left: auto;
+    padding-right: auto;
+    /* padding: 42px 276px 40px 249px; */
     display: flex;
     justify-content: center;
 }
@@ -461,3 +660,24 @@ footer div{
     padding: 22px 0px;
 }
 
+@media (max-width: 768px){
+    .footer__company{
+        display: none;
+    }
+    .footer__contact{
+        display: none;
+    }
+    .footer__icons{
+        display: none;
+    }
+    .footer__links_head{
+        display: none;
+    }
+    .footer__links{
+        margin-right: 0px;
+        align-items: start;
+    }
+    .suka{
+        display: none;
+    }
+}

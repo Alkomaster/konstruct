@@ -6,7 +6,6 @@
 }
 
 /* Убираем внутренние отступы */
-ul[class],
 ol[class] {
   padding: 0;
 }
@@ -35,6 +34,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   min-width: 100vw;
+  max-width: 100vw;
+  position: absolute;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
